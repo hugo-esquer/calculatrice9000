@@ -2,7 +2,9 @@ def calcul(ope):
     global num1
     global num2
     global resultat
-    if ope == "+":
+    if ope == "/" and num2 == 0:
+        print("Il est impossible de diviser par zéro.")
+    elif ope == "+":
         print(f"{num1} + {num2} = {num1+num2}")
         resultat = f"{num1} + {num2} = {num1+num2}"
     elif ope == "-":
