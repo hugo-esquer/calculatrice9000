@@ -2,6 +2,7 @@ def calcul(ope):
     global num1
     global num2
     global resultat
+    
     if ope == "/" and num2 == 0:
         print("Il est impossible de diviser par zéro.")
     elif ope == "+":
@@ -37,8 +38,8 @@ while True:
     num1 = input("Entrer un chiffre: ")
     operateur = input("Entrer un opérateur: ")
     num2 = input("Entrer un deuxième chiffre : ")
-    if num1 == "effacer" or operateur == "effacer" or num2 == "effacer":
 
+    if num1 == "effacer" or operateur == "effacer" or num2 == "effacer":
         with open("historique_texte.txt", "w") as fichier:
             fichier.write("")
     else:
