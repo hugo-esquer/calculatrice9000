@@ -26,8 +26,9 @@ def calcul(ope):
     else:
         print("Entrer un opérateur valide.")
 
-historique = []
+
 while True:
+    historique = open("historique_texte.txt", "r")
 
     print("Tapper effacer pour effacer l'historique.")
     resultat = ""
@@ -35,7 +36,9 @@ while True:
     operateur = input("Entrer un opérateur: ")
     num2 = input("Entrer un deuxième chiffre : ")
     if num1 == "effacer" or operateur == "effacer" or num2 == "effacer":
-        historique = []
+
+        with open("historique_texte.txt", "w") as fichier:
+            fichier.write("")
     else:
         try:
             num1 = float(num1)
@@ -49,8 +52,8 @@ while True:
             calcul(operateur)
 
         if resultat != "":
-            historique.append(resultat)
-    print("\nHistorique:")
-    for i in historique:
-        print(i)
-    print("\n")
+            with open("historique_texte.txt", "a") as fichier:
+                fichier.write(resultat + "\n")
+    print("\n Historique:")
+    print(historique.read())
+    historique.close()
